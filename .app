@@ -13,7 +13,8 @@ function doPost(e) {
           success: false, 
           error: 'reCAPTCHA verification failed. Please complete the verification and try again.'
         }))
-        .setMimeType(ContentService.MimeType.JSON);
+        .setMimeType(ContentService.MimeType.JSON)
+        .setHeader("Access-Control-Allow-Origin", "*");
     }
     
     // If reCAPTCHA passed, save to sheet
