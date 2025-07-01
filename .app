@@ -52,13 +52,15 @@ Submitted: ${new Date()}
     }
     
     return ContentService
-      .createTextOutput(JSON.stringify({success: true}))
-      .setMimeType(ContentService.MimeType.JSON);
+  .createTextOutput(JSON.stringify({success: true}))
+  .setMimeType(ContentService.MimeType.JSON)
+  .setHeader("Access-Control-Allow-Origin", "*");
       
   } catch (error) {
     return ContentService
       .createTextOutput(JSON.stringify({success: false, error: error.toString()}))
-      .setMimeType(ContentService.MimeType.JSON);
+      .setMimeType(ContentService.MimeType.JSON)
+      .setHeader("Access-Control-Allow-Origin", "*");
   }
 }
 
