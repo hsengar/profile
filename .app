@@ -2,10 +2,10 @@ function doPost(e) {
   try {
     // Parse the incoming data
     var data = JSON.parse(e.postData.contents);
-    
+    console.log('Incoming data:', data);
     // Verify reCAPTCHA v2
     var recaptchaResponse = verifyRecaptchaV2(data.recaptcha_response);
-    
+    console.log('reCAPTCHA result:', recaptchaResponse);
     // Check if reCAPTCHA verification passed
     if (!recaptchaResponse.success) {
       return ContentService
